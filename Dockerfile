@@ -37,7 +37,7 @@ RUN docker-php-ext-configure mcrypt \
       soap
 
 RUN pecl install imagick \
-    && docker-php-ext-enable imagick gd
+    && docker-php-ext-enable imagick
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | \
