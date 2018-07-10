@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean
 
 RUN docker-php-ext-configure mcrypt \
-    && docker-php-ext-configure gd --with-jpeg-dir=/usr/lib64/ \
+    && docker-php-ext-configure gd --with-jpeg-dir=/usr/lib64/ --with-png-dir=/usr/lib64/ --with-freetype-dir=/usr/lib64/ \
     && docker-php-ext-install \
       gd \
       intl \
