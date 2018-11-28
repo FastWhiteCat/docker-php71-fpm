@@ -1,5 +1,6 @@
 FROM php:7.1-fpm
 
+ENV DOCKERIZE_VERSION v0.6.1
 RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     libicu-dev \
@@ -54,3 +55,7 @@ RUN curl -sL  https://deb.nodesource.com/setup_8.x | bash - && \
 RUN cd /usr/local/bin && \
     wget https://files.magerun.net/n98-magerun.phar && \
     chmod +x ./n98-magerun.phar
+
+# Install Dockerize
+RUN curl -Ls https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+           | tar -xzv -C /usr/local/bin
